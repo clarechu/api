@@ -781,22 +781,22 @@ type ServiceEntry_Location int32
 const (
 	// Signifies that the service is external to the mesh. Typically used
 	// to indicate external services consumed through APIs.
-	ServiceEntry_MESH_EXTERNAL ServiceEntry_Location = 0
+	ServiceEntry_MESH_EXTERNAL ServiceEntry_Location = 1
 	// Signifies that the service is part of the mesh. Typically used to
 	// indicate services added explicitly as part of expanding the service
 	// mesh to include unmanaged infrastructure (e.g., VMs added to a
 	// Kubernetes based service mesh).
-	ServiceEntry_MESH_INTERNAL ServiceEntry_Location = 1
+	ServiceEntry_MESH_INTERNAL ServiceEntry_Location = 2
 )
 
 var ServiceEntry_Location_name = map[int32]string{
-	0: "MESH_EXTERNAL",
-	1: "MESH_INTERNAL",
+	1: "MESH_EXTERNAL",
+	2: "MESH_INTERNAL",
 }
 
 var ServiceEntry_Location_value = map[string]int32{
-	"MESH_EXTERNAL": 0,
-	"MESH_INTERNAL": 1,
+	"MESH_EXTERNAL": 1,
+	"MESH_INTERNAL": 2,
 }
 
 func (x ServiceEntry_Location) String() string {
@@ -825,10 +825,10 @@ const (
 	// eBPF. After performing any routing related transformations, the
 	// proxy will forward the connection to the IP address to which the
 	// connection was bound.
-	ServiceEntry_NONE ServiceEntry_Resolution = 0
+	ServiceEntry_NONE ServiceEntry_Resolution = 1
 	// Use the static IP addresses specified in endpoints (see below) as the
 	// backing instances associated with the service.
-	ServiceEntry_STATIC ServiceEntry_Resolution = 1
+	ServiceEntry_STATIC ServiceEntry_Resolution = 2
 	// Attempt to resolve the IP address by querying the ambient DNS,
 	// during request processing. If no endpoints are specified, the proxy
 	// will resolve the DNS address specified in the hosts field, if
@@ -836,19 +836,19 @@ const (
 	// addresses specified in the endpoints will be resolved to determine
 	// the destination IP address.  DNS resolution cannot be used with Unix
 	// domain socket endpoints.
-	ServiceEntry_DNS ServiceEntry_Resolution = 2
+	ServiceEntry_DNS ServiceEntry_Resolution = 3
 )
 
 var ServiceEntry_Resolution_name = map[int32]string{
-	0: "NONE",
-	1: "STATIC",
-	2: "DNS",
+	1: "NONE",
+	2: "STATIC",
+	3: "DNS",
 }
 
 var ServiceEntry_Resolution_value = map[string]int32{
-	"NONE":   0,
-	"STATIC": 1,
-	"DNS":    2,
+	"NONE":   1,
+	"STATIC": 2,
+	"DNS":    3,
 }
 
 func (x ServiceEntry_Resolution) String() string {
